@@ -7,9 +7,9 @@ export default function Home() {
   return (
     <div>
       <TopBanner />
-      <TreatmentTypes/>
-      <Concern/>
-      <Testimonial/>
+      <TreatmentTypes />
+      <Concern />
+      <Testimonial />
     </div>
   );
 }

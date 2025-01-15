@@ -6,10 +6,8 @@ import React, { useState } from "react";
 const ImageCarousel: React.FC = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
 
-    // Dynamic imagesPerPage based on screen size
-    const imagesPerPage = window.innerWidth < 575 ? 1 : window.innerWidth < 992 ? 2 : 3; // 1 image on small screens, 3 images on larger screens
+    const imagesPerPage = window.innerWidth < 575 ? 1 : window.innerWidth < 992 ? 2 : 3;
 
-    // Handle navigation to the next group of images
     const handleNext = () => {
         setCurrentIndex((prevIndex) => {
             const nextIndex = prevIndex + imagesPerPage;
@@ -17,7 +15,6 @@ const ImageCarousel: React.FC = () => {
         });
     };
 
-    // Handle navigation to the previous group of images
     const handlePrev = () => {
         setCurrentIndex((prevIndex) => {
             const prevIndexAdjusted = prevIndex - imagesPerPage;
@@ -27,12 +24,9 @@ const ImageCarousel: React.FC = () => {
         });
     };
 
-    // Handle dot click to navigate to a specific group
     const handleDotClick = (groupIndex: number) => {
         setCurrentIndex(groupIndex * imagesPerPage);
     };
-
-    // Calculate the total number of groups based on screen size
     const totalGroups = Math.ceil(concernData.length / imagesPerPage);
 
     return (
@@ -63,7 +57,6 @@ const ImageCarousel: React.FC = () => {
                     ))}
                 </div>
 
-                {/* Navigation Buttons */}
                 <div className="absolute top-1/2 -translate-y-1/2 flex justify-between w-full px-4">
                     <button
                         onClick={handlePrev}

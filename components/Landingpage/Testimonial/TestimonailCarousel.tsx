@@ -1,15 +1,12 @@
 "use client";
 import { testimonials } from "@/data/data";
 import React, { useState } from "react";
-import { Quote, TextQuoteIcon } from 'lucide-react';
 
-// Assume the `testimonials` array is imported from a separate file.
 
 const TestimonialCarousel: React.FC = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
-    const itemsPerGroup = 2; // Number of testimonials in each group
+    const itemsPerGroup = 2;
 
-    // Group testimonials into sets of 2 for display
     const groupedTestimonials = testimonials.reduce<{
         description: string;
         userName: string;
@@ -26,26 +23,22 @@ const TestimonialCarousel: React.FC = () => {
 
     const totalGroups = groupedTestimonials.length;
 
-    // Handle navigation to the next group of testimonials
     const handleNext = () => {
         setCurrentIndex((prevIndex) => (prevIndex + 1) % totalGroups);
     };
 
-    // Handle navigation to the previous group of testimonials
     const handlePrev = () => {
         setCurrentIndex((prevIndex) => (prevIndex - 1 + totalGroups) % totalGroups);
     };
 
     return (
         <div className="relative w-full mx-auto">
-            {/* Carousel Container */}
             <div>
-                {/* Grouped Testimonials */}
                 <div className="flex space-x-4 flex-wrap justify-center">
                     {groupedTestimonials[currentIndex].map((testimonial, index) => (
                         <div
                             key={index}
-                            className="w-full sm:w-[45%] mx-auto px-5 text-center mb-4" // w-full for small screens and w-[45%] for larger screens
+                            className="w-full sm:w-[45%] mx-auto px-5 text-center mb-4"
                         >
                             <p className="italic text-xs sm:text-sm lg:text-lg text-gray-600 mb-4">
                                 {testimonial.description}
@@ -58,7 +51,6 @@ const TestimonialCarousel: React.FC = () => {
                     ))}
                 </div>
 
-                {/* Navigation Buttons */}
                 <div className="absolute top-1/2 left-0 transform -translate-y-1/2 flex justify-between w-full px-4">
                     <button
                         onClick={handlePrev}
