@@ -1,8 +1,7 @@
 "use client";
 import { testimonials } from "@/data/data";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import React, { useState, useEffect } from "react";
-import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import React, { useEffect, useState } from "react";
 
 const TestimonialCarousel: React.FC = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
