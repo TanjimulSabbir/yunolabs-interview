@@ -1,13 +1,13 @@
-import { Roboto } from "next/font/google";
-import "../styles/globals.css";
-import { Metadata } from "next";
-import { HomePageMetaData } from "../data/meta-data";
-import Navbar from "@/components/Navigation/Navbar";
 import Footer from "@/components/Navigation/Footer";
+import Navbar from "@/components/Navigation/Navbar";
+import { Metadata } from "next";
+import { Roboto_Slab } from "next/font/google";
+import { HomePageMetaData } from "../data/meta-data";
+import "../styles/globals.css";
 
 export const metadata: Metadata = HomePageMetaData;
 
-const roboto = Roboto({
+const roboto = Roboto_Slab({
   variable: "--font-roboto",
   subsets: ["latin"],
   weight: "400",
