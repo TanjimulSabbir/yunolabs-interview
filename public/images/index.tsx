@@ -1,4 +1,5 @@
-import navlogo from "../nav-logo/logo.png";
+"use client"
+import navlogo from "../nav-logo/nav-logo.png";
 import topbannerimage from "../top-banner/top-banner.png"
 import treatmentType01 from "../treatment-type/01.png";
 import treatmentType02 from "../treatment-type/02.png";
