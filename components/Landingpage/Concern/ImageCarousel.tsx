@@ -1,6 +1,5 @@
 "use client"
 import { concernData } from "@/data/data";
-import { IdCardIcon } from "lucide-react";
 import Image from "next/image";
 import React, { useState } from "react";
 
@@ -22,30 +21,30 @@ const ImageCarousel: React.FC = () => {
     return (
         <div className="relative w-full mx-auto">
             {/* Carousel Image */}
-            <div className="grid grid-cols-3 gap-5 rounded-3xl overflow-hidden relative">
+            <div className="overflow-hidden rounded-3xl">
                 <div
                     className="flex transition-transform duration-500"
-                    style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+                    style={{ transform: `translateX(-${currentIndex * (100 / 3)}%)`, width: `${concernData.length * (100 / 3)}%` }}
                 >
                     {concernData.map(({ id, title, image }) => (
-                        <Image
-                            key={id}
-                            src={image}
-                            alt={title}
-                            className="w-full object-cover"
-                        />
+                        <div key={id} className="w-1/3 p-2">
+                            <Image
+                                src={image}
+                                alt={title}
+                                className="w-full h-full object-cover rounded-3xl"
+                            />
+                        </div>
                     ))}
                 </div>
             </div>
 
             {/* Bottom Navigation */}
             <div className="absolute bottom-4 left-4 flex items-center space-x-2">
-                {concernData.map(({ id }) => (
+                {concernData.map((_, index) => (
                     <button
-                        key={id}
-                        onClick={() => handleDotClick(id)}
-                        className={`w-3 h-3 rounded-full ${currentIndex === id ? "bg-blue-500" : "bg-gray-400"
-                            }`}
+                        key={index}
+                        onClick={() => handleDotClick(index)}
+                        className={`w-3 h-3 rounded-full ${currentIndex === index ? "bg-blue-500" : "bg-gray-400"}`}
                     >
                     </button>
                 ))}

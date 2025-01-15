@@ -3,6 +3,7 @@ import "../styles/globals.css";
 import { Metadata } from "next";
 import { HomePageMetaData } from "../data/meta-data";
 import Navbar from "@/components/Navigation/Navbar";
+import Footer from "@/components/Navigation/Footer";
 
 export const metadata: Metadata = HomePageMetaData;
 
@@ -22,6 +23,7 @@ export default function RootLayout({
       <body className={`${roboto.className} antialiased`}>
         <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );
