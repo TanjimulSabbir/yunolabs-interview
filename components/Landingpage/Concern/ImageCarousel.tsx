@@ -5,7 +5,9 @@ import React, { useState } from "react";
 
 const ImageCarousel: React.FC = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
-    const imagesPerPage = 3; // Number of images in each group
+
+    // Dynamic imagesPerPage based on screen size
+    const imagesPerPage = window.innerWidth < 575 ? 1 : window.innerWidth < 992 ? 2 : 3; // 1 image on small screens, 3 images on larger screens
 
     // Handle navigation to the next group of images
     const handleNext = () => {
@@ -30,6 +32,7 @@ const ImageCarousel: React.FC = () => {
         setCurrentIndex(groupIndex * imagesPerPage);
     };
 
+    // Calculate the total number of groups based on screen size
     const totalGroups = Math.ceil(concernData.length / imagesPerPage);
 
     return (
@@ -43,21 +46,19 @@ const ImageCarousel: React.FC = () => {
                     {concernData.map(({ id, title, image }) => (
                         <div
                             key={id}
-                            className="w-[calc(100%/3)] flex-shrink-0 px-2 relative group"
+                            className="w-full sm:w-[calc(100%/2)] lg:w-[calc(100%/3)] flex-shrink-0 px-2 relative group"
                         >
                             {/* Image */}
                             <Image
                                 src={image}
                                 alt={title}
-                                className="w-full h-[500px] object-cover rounded-lg"
+                                className="w-full h-[300px] sm:h-[400px] lg:h-[500px] object-cover rounded-lg"
                             />
 
                             {/* Title Overlay */}
                             <div className="absolute inset-0 left-5 bottom-5 gap-5 flex items-end">
-
-                                <h2 className="pl-2 text-3xl text-white font-semibold">{title}</h2>
+                                <h2 className="pl-2 text-xl sm:text-2xl lg:text-3xl text-white font-semibold">{title}</h2>
                             </div>
-
                         </div>
                     ))}
                 </div>
@@ -106,12 +107,12 @@ const ImageCarousel: React.FC = () => {
             </div>
 
             {/* Dots Navigation */}
-            <div className="absolute bottom-4 left-4 flex items-center space-x-2">
+            <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex items-center space-x-2">
                 {Array.from({ length: totalGroups }).map((_, groupIndex) => (
                     <button
                         key={groupIndex}
                         onClick={() => handleDotClick(groupIndex)}
-                        className={`w-3 h-3 rounded-full ${currentIndex / imagesPerPage === groupIndex ? "bg-black" : "bg-white"
+                        className={`w-2.5 h-2.5 sm:w-3 sm:h-3 lg:w-3 lg:h-3 rounded-full ${currentIndex / imagesPerPage === groupIndex ? "bg-black" : "bg-white"
                             }`}
                     ></button>
                 ))}
