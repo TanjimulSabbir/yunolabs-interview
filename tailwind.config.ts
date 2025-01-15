@@ -20,6 +20,9 @@ export default {
 				'3xl': '1600px',
 			},
 			colors: {
+				prime: "#F4F4F4",
+				lightBlack: "#2D2D2D",
+				lightBrown: "#CDBCAB",
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
 				card: {
