@@ -1,6 +1,6 @@
-import { concern01, concern02, concern03, concern04, concern05, concern06, concern07, concern08, concern09, treatmentType01, treatmentType02 } from "@/public/images"
+import {topbannerimage, concern01, concern02, concern03, concern04, concern05, concern06, concern07, concern08, concern09, treatmentType01, treatmentType02 } from "@/public/images"
 
-export const topbannerData = { title: "Unveil Your Best Self with Cosmedix Clinics’ Expert Care and Cutting-Edge Treatments" }
+export const topbannerData = { title: "Unveil Your Best Self with Cosmedix Clinics’ Expert Care and Cutting-Edge Treatments", image: topbannerimage }
 
 export const treatmentTypesData = [{ title: "Specialise in non-surgical corrective and cosmetic treatments", image: treatmentType01 }, { title: "Option between In-Clinic and Virtual Consultation", image: treatmentType02 }]
 
